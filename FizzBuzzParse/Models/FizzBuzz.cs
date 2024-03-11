@@ -14,6 +14,15 @@ namespace FizzBuzzParse.Models
         public string fizzBuzzOutput { get; set; }
         public List<String> divisions { get; set; }
 
+        public string[] inputArray { get; set; }
+
+        public FizzBuzz()
+        {
+            input = string.Empty;
+            validInput = false;
+            fizzBuzzOutput = string.Empty;
+            divisions = new List<String>();
+        }
         public FizzBuzz(string userInput)
         {
             input = userInput;
@@ -34,16 +43,21 @@ namespace FizzBuzzParse.Models
             }
             catch (FormatException)
             {
-                validInput = false;
+                validInput =  false;
             }
             catch (ArgumentNullException)
             {
                 validInput = false;
             }
+            catch (OverflowException)
+            {
+                validInput = false;
+            }
+            return;
         }
         public void Parse()
         {
-            try 
+            try
             {
                 int value = Int32.Parse(input);
 
@@ -57,9 +71,13 @@ namespace FizzBuzzParse.Models
                     fizzBuzzOutput += "Buzz";
                 }
                 LogDivision(5);
+                if (fizzBuzzOutput != string.Empty)
+                {
+                    fizzBuzzOutput += "<br />";
+                }
             }
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
             }
             return;
         }
@@ -70,16 +88,17 @@ namespace FizzBuzzParse.Models
             return;
         }
 
-        public string FinalOutput()
+        public string PrintOutput()
         {
             string output = string.Empty;
             if (!this.validInput)
             {
-                output = "Invalid Item";
+                output = "Invalid Item <br />";
             }
             else if (this.fizzBuzzOutput == "")
             {
                 output = String.Join("<br />", divisions);
+                output += "<br />";
             }
             else
             { 

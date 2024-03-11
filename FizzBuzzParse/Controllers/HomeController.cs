@@ -22,10 +22,22 @@ namespace FizzBuzzParse.Controllers
         [HttpPost]
         public IActionResult Index(string userInput)
         {
-            var FizzBuzz = new FizzBuzz(userInput);
-            FizzBuzz.InputCheck();
-            FizzBuzz.Parse();
-            ViewBag.Result = FizzBuzz.FinalOutput();
+            //var FizzBuzz = new FizzBuzz(userInput);
+            var fizzBuzzList = new FizzBuzzList(userInput);
+            if(fizzBuzzList.notEmpty)
+            {
+                foreach (var f in fizzBuzzList.fizzBuzzes)
+                {
+                    f.InputCheck();
+                    f.Parse();
+                    f.PrintOutput();
+                    ViewBag.Result += f.PrintOutput();
+                }
+            }
+            else
+            {
+                ViewBag.Result += ("Invalid Item");
+            }
             return View();
         }
         public IActionResult Privacy()
