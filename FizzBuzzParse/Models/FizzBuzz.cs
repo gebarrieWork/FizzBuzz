@@ -31,7 +31,7 @@ namespace FizzBuzzParse.Models
             divisions = new List<String>();
         }
         
-
+        //Check input to ensure validity, if not valid, flag as invalid
         public void InputCheck()
         {
             try
@@ -56,13 +56,15 @@ namespace FizzBuzzParse.Models
             }
             return;
         }
+
+        //FizzBuzz logic implementation
         public void Parse()
         {
             try
             {
                 int value = Int32.Parse(input);
 
-                if (value % 3 == 0)
+                if (value % 3 == 0) //attempting a more elegant solution here
                 {
                     fizzBuzzOutput += "Fizz";
                 }
@@ -88,6 +90,7 @@ namespace FizzBuzzParse.Models
             this.divisions.Add("Divided " + input + " by " + divisor);
             return;
         }
+
 
         public string PrintOutput()
         {
