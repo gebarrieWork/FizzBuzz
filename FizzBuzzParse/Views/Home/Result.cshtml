@@ -1,0 +1,32 @@
+﻿@model FizzBuzzParse.Models.FizzBuzz
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h1>View</h1>
+
+<div>
+    <h4>FizzBuzz Output</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.input)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.input)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.validInput)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.validInput)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fizzBuzzOutput)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fizzBuzzOutput)
+        </dd>
+    </dl>
+</div>

@@ -1,8 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model FizzBuzz
+
+@{
+    ViewData["Title"] = "FizzBuzz";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>FizzBuzz</h1>
+
+<form asp-action="Index" method="post">
+    <label for="userInput">Enter a string:</label><br />
+    <input type="text" id="userInput" name="userInput" /><br />
+    <button type="submit">Submit</button>
+</form>
+<div>
+    @Html.Raw(ViewBag.Result)
 </div>

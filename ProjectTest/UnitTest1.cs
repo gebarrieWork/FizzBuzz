@@ -1,9 +1,9 @@
 namespace ProjectTest
 {
-    public class UnitTest1
+    public class FizzBuzzUnitTest
     {
         [Fact]
-        public void Test1()
+        public void ParseTest()
         {
 
         }

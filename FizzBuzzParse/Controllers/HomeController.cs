@@ -13,11 +13,21 @@ namespace FizzBuzzParse.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Index(string userInput)
+        {
+            var FizzBuzz = new FizzBuzz(userInput);
+            FizzBuzz.InputCheck();
+            FizzBuzz.Parse();
+            ViewBag.Result = FizzBuzz.FinalOutput();
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
