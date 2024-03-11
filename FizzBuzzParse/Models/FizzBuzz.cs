@@ -30,6 +30,7 @@ namespace FizzBuzzParse.Models
             fizzBuzzOutput = string.Empty;
             divisions = new List<String>();
         }
+        
 
         public void InputCheck()
         {
